@@ -23,13 +23,13 @@ const InvoiceModal = (props) => {
   const createInvoice = async () => {
     const invoiceData = {
       logo: 'https://www.freepnglogos.com/uploads/company-logo-png/company-logo-transparent-png-19.png',
-      from: `${info.billFrom}\n${info.billFromAddress || ""}\n${
-        info.billFromEmail || ""
+      from: `${info.billFrom}\n${info.billFromAddress}\n${
+        info.billFromEmail 
       }\n${info.gstReg}\n${info.panNo}`,
-      to: `${info.billTo || ""}\n${info.billToAddress || ""}\n${
-        info.billToEmail || ""
+      to: `${info.billTo }\n${info.billToAddress}\n${
+        info.billToEmail 
       }`,
-      ship_to: `${info.shipTo}\n${info.shipToAddress}\n${info.shipToEmail || ''}`,
+      ship_to: `${info.shipTo}\n${info.shipToAddress}\n${info.shipToEmail}`,
       number: info.invoiceNumber,
       date: info.dateOfIssue || new Date().toISOString().split("T")[0],
       payment_terms: "NET 30",
@@ -45,13 +45,13 @@ const InvoiceModal = (props) => {
       tax: taxAmount,
       shipping: 0,
       amount_paid: 0,
-      notes: info.notes || "",
+      notes: info.notes,
       terms: "Terms and conditions go will here...",
     };
 
     try {
       const response = await axios.post(
-        "https://invoice-generator-qys7.onrender.com/api/create-invoice",
+        "http://localhost:5000/api/create-invoice",
         invoiceData,
         {
           headers: {
