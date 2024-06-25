@@ -51,7 +51,7 @@ const InvoiceModal = (props) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/create-invoice",
+        "https://invoice-generator-qys7.onrender.com/api/create-invoice",
         invoiceData,
         {
           headers: {
