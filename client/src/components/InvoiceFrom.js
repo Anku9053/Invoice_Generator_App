@@ -387,7 +387,7 @@ const InvoiceForm = () => {
           </Col>
           <Col md={4} lg={3}>
             <div className="sticky-top pt-md-3 pt-xl-4">
-              <Button variant="primary" type="submit" className="d-block w-100">
+              <Button variant="primary" type="submit" className="w-100">
                 Review Invoice
               </Button>
               <InvoiceModal
