@@ -1,13 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors')
+require('dotenv').config()
 const app = express();
 const port = 5000;
 
 app.use(express.json());
 
 const corsConfiguration = {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000","https://invoice-generator-nine-green.vercel.app"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
 };
@@ -19,7 +20,7 @@ app.post('/api/create-invoice', async (req, res) => {
         const response = await axios.post('https://invoice-generator.com', req.body, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${api_key}`
+                'Authorization': `Bearer ${process.env.api_key}`
             },
             responseType: 'arraybuffer'  // Ensure the response is in the correct format
         });
