@@ -17,7 +17,7 @@ html,
   /* padding: 0 50px; */
   overflow-x: hidden;
 }
-.btn {
+/* .btn {
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.66rem;
@@ -35,7 +35,7 @@ html,
 .btn-light:hover {
   border-color: #dedede;
   background-color: #f3f3f3
-}
+} */
 
 .shadow {
   box-shadow: 0 .1rem .1rem rgba(0,0,0,.05)!important
