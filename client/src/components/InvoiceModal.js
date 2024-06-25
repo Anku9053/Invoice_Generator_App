@@ -22,7 +22,7 @@ const InvoiceModal = (props) => {
 
   const createInvoice = async () => {
     const invoiceData = {
-      logo: 'https://www.freepnglogos.com/uploads/company-logo-png/company-logo-transparent-png-19.png', // Replace with your logo URL
+      logo: 'https://www.freepnglogos.com/uploads/company-logo-png/company-logo-transparent-png-19.png',
       from: `${info.billFrom}\n${info.billFromAddress || ""}\n${
         info.billFromEmail || ""
       }\n${info.gstReg}\n${info.panNo}`,
