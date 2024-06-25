@@ -15,7 +15,6 @@ const corsConfiguration = {
 app.use(cors(corsConfiguration));
 
 app.post('/api/create-invoice', async (req, res) => {
-    const api_key = 'sk_jnk6QWdQBl906sP5MLb3Jxh6kCtV4fOi';
     try {
         const response = await axios.post('https://invoice-generator.com', req.body, {
             headers: {
