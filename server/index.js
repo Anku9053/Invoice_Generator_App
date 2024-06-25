@@ -21,7 +21,7 @@ app.post('/api/create-invoice', async (req, res) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.api_key}`
             },
-            responseType: 'arraybuffer'  // Ensure the response is in the correct format
+            responseType: 'arraybuffer' 
         });
 
         res.setHeader('Content-Disposition', 'attachment; filename=invoice.pdf');
@@ -34,5 +34,5 @@ app.post('/api/create-invoice', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on :${port}`);
 });
