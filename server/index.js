@@ -10,6 +10,7 @@ app.use(express.json());
 const corsConfiguration = {
     origin: ["http://localhost:3000","https://invoice-generator-nine-green.vercel.app"],
     methods: ["GET", "POST", "DELETE", "PUT"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 };
 app.use(cors(corsConfiguration));
@@ -19,7 +20,7 @@ app.post('/api/create-invoice', async (req, res) => {
         const response = await axios.post('https://invoice-generator.com', req.body, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.api_key}`
+                'Authorization': `Bearer ${process.env.API_KEY}`
             },
             responseType: 'arraybuffer' 
         });
