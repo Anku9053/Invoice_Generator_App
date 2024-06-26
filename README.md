@@ -1,4 +1,4 @@
-# Invoice Generator Website Documentation
+# Invoice Generator Website
 
 ## Overview
 
