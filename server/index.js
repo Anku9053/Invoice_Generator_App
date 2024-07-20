@@ -6,9 +6,7 @@ const app = express();
 const port = 5000;
 
 app.use(express.json());
-
 app.use(cors());
-
 app.post('/api/create-invoice', async (req, res) => {
     try {
         const response = await axios.post('https://invoice-generator.com', req.body, {
