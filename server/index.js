@@ -7,13 +7,7 @@ const port = 5000;
 
 app.use(express.json());
 
-const corsConfiguration = {
-    origin: ["http://localhost:3000","https://invoice-generator-nine-green.vercel.app"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-};
-app.use(cors(corsConfiguration));
+app.use(cors());
 
 app.post('/api/create-invoice', async (req, res) => {
     try {
