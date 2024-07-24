@@ -9,9 +9,10 @@ import InvoiceItem from "./InvoiceItem";
 import InvoiceModal from "./InvoiceModal";
 import InputGroup from "react-bootstrap/InputGroup";
 
+import "../css/InvoiceFrom.css"
 const InvoiceForm = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currency, setCurrency] = useState("$");
+  const [currency, setCurrency] = useState("₹");
   const [currentDate, setCurrentDate] = useState("");
   const [invoiceNumber, setInvoiceNumber] = useState(1);
   const [dateOfIssue, setDateOfIssue] = useState("");
@@ -428,7 +429,7 @@ const InvoiceForm = () => {
                   className="btn btn-light my-1"
                   aria-label="Change Currency"
                 >
-                  <option value="$">USD (United States Dollar)</option>
+                  
                   <option value="₹">INR (Indian Rupees)</option>
                 </Form.Select>
               </Form.Group>

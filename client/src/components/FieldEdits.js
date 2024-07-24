@@ -1,36 +1,58 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { FormControl, FormLabel, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react';
 
 const FieldEdits = (props) => {
   return (
-    <InputGroup className="my-1 flex-nowrap">
+    <FormControl my={1} display="flex" alignItems="center">
       {props.cellData.leading != null && (
-        <InputGroup.Text className="bg-light fw-bold border-0 text-secondary px-2">
-          <span
-            className="border border-2 border-secondary rounded-circle d-flex align-items-center justify-content-center small"
-            style={{ width: '20px', height: '20px' }}
+        <InputGroup size="sm">
+          <InputLeftAddon
+            bg="lightgray"
+            borderRadius="full"
+            color="gray.600"
+            fontWeight="bold"
+            px={2}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="24px"
+            height="24px"
           >
             {props.cellData.leading}
-          </span>
-        </InputGroup.Text>
+          </InputLeftAddon>
+          <Input
+            type={props.cellData.type}
+            placeholder={props.cellData.placeholder}
+            min={props.cellData.min}
+            name={props.cellData.name}
+            id={props.cellData.id}
+            value={props.cellData.value}
+            step={props.cellData.step}
+            precision={props.cellData.precision}
+            aria-label={props.cellData.name}
+            onChange={props.onItemizedItemEdit}
+            required
+            textAlign={props.cellData.textAlign}
+          />
+        </InputGroup>
       )}
-      <Form.Control
-        className={props.cellData.textAlign}
-        type={props.cellData.type}
-        placeholder={props.cellData.placeholder}
-        min={props.cellData.min}
-        name={props.cellData.name}
-        id={props.cellData.id}
-        value={props.cellData.value}
-        step={props.cellData.step}
-        presicion={props.cellData.presicion}
-        aria-label={props.cellData.name}
-        onChange={props.onItemizedItemEdit}
-        required
-      />
-    </InputGroup>
+      {props.cellData.leading == null && (
+        <Input
+          type={props.cellData.type}
+          placeholder={props.cellData.placeholder}
+          min={props.cellData.min}
+          name={props.cellData.name}
+          id={props.cellData.id}
+          value={props.cellData.value}
+          step={props.cellData.step}
+          precision={props.cellData.precision}
+          aria-label={props.cellData.name}
+          onChange={props.onItemizedItemEdit}
+          required
+          textAlign={props.cellData.textAlign}
+        />
+      )}
+    </FormControl>
   );
 };
 

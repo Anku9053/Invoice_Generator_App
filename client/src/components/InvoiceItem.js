@@ -1,17 +1,18 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
-// import { BiTrash } from "react-icons/bi";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Button,
+  useDisclosure,
+  Box,
+} from "@chakra-ui/react";
 import FieldEdits from "./FieldEdits";
 
-const InvoiceItem = ({
-  onItemizedItemEdit,
-  currency,
-  items,
-  onRowDel,
-  onRowAdd,
-}) => {
+const InvoiceItem = ({ onItemizedItemEdit, currency, items, onRowDel, onRowAdd }) => {
   const handleDelEvent = (item) => {
     onRowDel(item);
   };
@@ -27,22 +28,22 @@ const InvoiceItem = ({
   ));
 
   return (
-    <div>
-      <Table>
-        <thead>
-          <tr>
-            <th>ITEM</th>
-            <th>QTY</th>
-            <th>PRICE/RATE</th>
-            <th className="text-center">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>{itemTable}</tbody>
+    <Box>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>ITEM</Th>
+            <Th>QTY</Th>
+            <Th>PRICE/RATE</Th>
+            <Th textAlign="center">ACTION</Th>
+          </Tr>
+        </Thead>
+        <Tbody>{itemTable}</Tbody>
       </Table>
-      <Button className="fw-bold" onClick={onRowAdd}>
+      <Button colorScheme="blue" mt={4} onClick={onRowAdd}>
         Add Item
       </Button>
-    </div>
+    </Box>
   );
 };
 
@@ -52,8 +53,8 @@ const ItemRow = ({ item, onItemizedItemEdit, onDelEvent, currency }) => {
   };
 
   return (
-    <tr>
-      <td style={{ width: "100%" }}>
+    <Tr>
+      <Td>
         <FieldEdits
           onItemizedItemEdit={onItemizedItemEdit}
           cellData={{
@@ -74,8 +75,8 @@ const ItemRow = ({ item, onItemizedItemEdit, onDelEvent, currency }) => {
             id: item.id,
           }}
         />
-      </td>
-      <td style={{ minWidth: "70px" }}>
+      </Td>
+      <Td>
         <FieldEdits
           onItemizedItemEdit={onItemizedItemEdit}
           cellData={{
@@ -87,8 +88,8 @@ const ItemRow = ({ item, onItemizedItemEdit, onDelEvent, currency }) => {
             id: item.id,
           }}
         />
-      </td>
-      <td style={{ minWidth: "130px" }}>
+      </Td>
+      <Td>
         <FieldEdits
           onItemizedItemEdit={onItemizedItemEdit}
           cellData={{
@@ -98,25 +99,23 @@ const ItemRow = ({ item, onItemizedItemEdit, onDelEvent, currency }) => {
             min: 1,
             step: "0.01",
             precision: 2,
-            textAlign: "text-end",
+            textAlign: "right",
             value: item.price,
             id: item.id,
           }}
         />
-      </td>
-      <td className="text-center" style={{ minWidth: "50px" }}>
-        <button
+      </Td>
+      <Td textAlign="center">
+        <Button
           onClick={handleDelEvent}
-          style={{ height: "33px", width: "33px", padding: "7.5px" }}
-          className="text-white mt-1 btn"
+          colorScheme="red"
+          variant="outline"
+          size="sm"
         >
-          <i
-            className="fa-regular fa-trash-can"
-            style={{ color: "#e60000" }}
-          ></i>
-        </button>
-      </td>
-    </tr>
+          <i className="fa-regular fa-trash-can"></i>
+        </Button>
+      </Td>
+    </Tr>
   );
 };
 
